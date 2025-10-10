@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🎬 FilmBox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="data:,"> 
+</head>
+<body>
+    <h1>🎬 FilmBox</h1>
+
+    <div class="movies-grid">
+        {% for movie in movies %}
+        <div class="movie-card">
+            
+            <a href="{{ url_for('movie_detail', movie_id=movie.Id) }}" style="text-decoration: none; color: inherit; display: contents;">
+
+                {% if movie.Images %}
+                <img src="{{ url_for('static', filename=movie.Images) }}" 
+                     alt="{{ movie.Title }} poster" class="movie-poster">
+                {% endif %}
+                
+                <div class="movie-details">
+                    <h2>{{ movie.Title }} ({{ movie.Release_Year }})</h2>
+                    <div class="info"><strong>Director:</strong> {{ movie.Director }}</div>
+                    <div class="info"><strong>Genre:</strong> {{ movie.Genre }}</div>
+                    <div class="info"><strong>Duration:</strong> {{ movie.Duration }} mins</div>
+                    <div class="info"><strong>Rating:</strong> {{ movie.Rating }}/10</div>
+                </div>
+                
+            </a>
+            
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+</body>
+</html>
