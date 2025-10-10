@@ -1,4 +1,4 @@
-# FilmBox
+## 🎬 FilmBox
 
 A simple web application built using Flask and MySQL to display a movie listing, details, and an admin interface for adding plot/cast information.
 
