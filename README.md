@@ -20,4 +20,4 @@ Selvam
 
 ## 🙏✨ Special Thanks ✨🙏
 
-*   **@karan27** for their consistent contributions and support.
+*   **@Karan27q** for their consistent contributions and support.
