@@ -4,10 +4,10 @@ A simple web application built using Flask and MySQL to display a movie listing,
 
 ## 🛠️ Technology Stack
 
-Backend: Python (Flask)
-Database: MySQL
-Frontend: HTML5
-Styling: CSS3	
+* Backend: Python (Flask)
+* Database: MySQL
+* Frontend: HTML5
+* Styling: CSS3	
 
 ## 📁 Project Structure
 
