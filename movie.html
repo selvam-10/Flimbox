@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Plot & Cast - FilmBox Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='movie_detail.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+   <a href="{{ movie_detail_url }}" class="back-link">← Back to Movie</a>
+
+    <div class="form-container">
+        <h1>Add Plot and Cast</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="plot">Plot Summary:</label>
+                <textarea id="plot" name="plot" placeholder="Enter the plot summary..." required>{{ movie.Plot or '' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="cast">Cast (separate names with commas):</label>
+                <textarea id="cast" name="cast" placeholder="e.g. Actor One, Actor Two, Actor Three" required>{{ movie.Cast or '' }}</textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
