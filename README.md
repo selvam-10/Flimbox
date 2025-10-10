@@ -2,14 +2,12 @@
 
 A simple web application built using Flask and MySQL to display a movie listing, details, and an admin interface for adding plot/cast information.
 
-##🛠️ Technology Stack
+## 🛠️ Technology Stack
+
 Backend: Python (Flask)
 Database: MySQL
 Frontend: HTML5
 Styling: CSS3	
-
-Export to Sheets
-
 
 ## 📁 Project Structure
 
