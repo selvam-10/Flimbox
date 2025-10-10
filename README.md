@@ -18,6 +18,6 @@ This project follows a standard Flask application structure:
 ## 👤 Developed By
 Selvam
 
-## Special Thanks 🙏✨
+## 🙏✨ Special Thanks 🙏✨
 
 *   **@karan27** for their consistent contributions and support.
