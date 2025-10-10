@@ -1,0 +1,191 @@
+/* ===========================
+    🎬 Movie Detail Page Styling
+    (Designed for a wider, full-page view)
+    =========================== */
+
+/* BACK LINK */
+
+html {
+  font-size: 80%; /* scales everything to 90% */
+}
+
+.back-link {
+    display: block; 
+    text-align: left; 
+    margin: 1.25rem 0; /* 20px */
+    text-decoration: none; 
+    color: #007bff;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* MAIN CONTENT CONTAINER */
+.detail-container {
+    /* Max width increased for a "fuller" feel */
+    max-width: 68.75rem; /* 1100px */
+    margin: 0 auto 2.5rem auto; /* 40px bottom */
+    padding: 2.5rem; /* 40px */
+    background: #fff;
+    border-radius: 0.9375rem; /* 15px */
+    box-shadow: 0 0.5rem 1.875rem rgba(0,0,0,0.1); /* 0 8px 30px */
+}
+
+/* ADMIN EDIT LINK */
+.admin-link {
+    text-align: right;
+    margin-bottom: 1.25rem; /* 20px */
+}
+.edit-btn {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.3125rem 0.625rem; /* 5px 10px */
+    border: 1px solid #000000;
+    border-radius: 0.3125rem; /* 5px */
+    transition: background-color 0.2s;
+}
+.edit-btn:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+/* POSTER AND MAIN INFO LAYOUT */
+.main-info {
+    display: flex;
+    /* Increased gap for separation */
+    gap: 3.125rem; /* 50px */
+    align-items: flex-start;
+    padding-bottom: 1.875rem; /* 30px */
+    border-bottom: 0.125rem solid #f0f0f0; /* 2px */
+}
+.detail-poster {
+    /* Increased size of the poster */
+    width: 21.875rem; /* 350px */
+    height: auto;
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0 0.25rem 1.25rem rgba(0,0,0,0.3); /* 0 4px 20px */
+    flex-shrink: 0;
+}
+
+/* MOVIE TITLE AND METADATA */
+.detail-info h1 {
+    /* Increased size of the main title */
+    font-size: 3em; 
+    margin-top: 0;
+    color: #111;
+}
+.detail-info p {
+    font-size: 1.2em; /* Slightly larger text */
+    line-height: 1.8;
+    margin-bottom: 0.625rem; /* 10px */
+}
+
+/* PLOT AND CAST SECTIONS */
+.plot-section, .cast-section {
+    padding-top: 1.5625rem; /* 25px */
+    border-top: 0.0625rem solid #eee; /* 1px */
+}
+.plot-section h2, .cast-section h2 {
+    font-size: 2em; /* Larger section headers */
+    color: #222;
+    margin-top: 0.9375rem; /* 15px */
+    margin-bottom: 0.9375rem; /* 15px */
+}
+.plot-section p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555;
+    white-space: pre-wrap;
+}
+.cast-section p {
+    font-size: 1.1em;
+     line-height: 1.7;
+    color: #666;
+    white-space: pre-wrap;
+}
+
+/* ===========================
+   📝 Add Plot & Cast Form Page
+   =========================== */
+
+
+
+.form-container {
+    max-width: 700px;
+    margin: 2rem auto 3rem auto;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.form-container h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 2rem;
+    color: #111;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 150px;
+    font-size: 1.1em;
+    font-family:"Libre Baskerville";
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.back-link {
+    display: block;
+    text-align: left;
+    margin: 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: none;
+}
