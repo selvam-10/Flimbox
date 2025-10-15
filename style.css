@@ -143,8 +143,56 @@ h1 {
     color: #ff3b3b;
 }
 
+
+.back-link-2{
+    display: block; 
+    text-align: right; 
+    margin: 1.25rem 0; /* 20px */
+    text-decoration: none; 
+    color: #007bff;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
 /* Zoom-in Animation */
 @keyframes zoomIn {
     from { transform: scale(0.5); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
+}
+
+/* ===========================
+    👤 Login/Logout Button Styling (Updated to Green CTA Theme)
+    =========================== */
+
+.login-btn {
+    /* Positioning (Kept absolute so it scrolls off with the page content) */
+    position: absolute; 
+    top: 1.875rem; /* 30px */
+    right: 3.125rem; /* 50px */
+    z-index: 10; 
+    
+    /* Appearance (Matching the green CTA button) */
+    background-color: #38b000; /* A distinct, bright green */
+    color: #fff; 
+    padding: 0.3rem 1.0rem; /* Larger padding for a bolder button */
+    border: none;
+    border-radius: 0.375rem; /* 6px standard radius */
+    text-decoration: none; 
+    
+    /* Font/Text */
+    font-weight: bold;
+    font-size: 1.1em; /* Slightly larger text */
+    letter-spacing: 0.03125rem; /* 0.5px */
+    
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    
+    /* Shadow (Adding a subtle shadow matching the provided image style) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.login-btn:hover {
+    /* Slightly darker green on hover for feedback */
+    background-color: #2b8000; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
 }
