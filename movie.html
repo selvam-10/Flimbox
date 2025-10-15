@@ -5,12 +5,12 @@
     <title>Add Plot & Cast - FilmBox Admin</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='movie_detail.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='movie.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
-
 </head>
 <body>
-
-   <a href="{{ movie_detail_url }}" class="back-link">← Back to Movie</a>
+    
+    <a href="{{ movie_detail_url }}" class="back-link">← Back to Movie</a>
 
     <div class="form-container">
         <h1>Add Plot and Cast</h1>
@@ -29,6 +29,7 @@
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
+
 
 </body>
 </html>
