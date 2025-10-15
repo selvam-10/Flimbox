@@ -1,0 +1,137 @@
+/* ===========================
+    👤 Login Page Styling (Modern Card Theme + Windows Style)
+    =========================== */
+
+html {
+    font-size: 90%; /* 14.4px base */
+}
+
+body.login-page { 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f4f9;
+    box-sizing: border-box;
+}
+
+.login-container {
+    max-width: 400px;
+    width: 90%;
+    margin: 2rem auto 3rem auto;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+    width: 8rem;
+    height: 8rem; 
+    border-radius: 50%;
+    overflow: hidden; 
+    margin: 0 auto 1.5rem auto;
+    background-color: #eee; 
+    border: 3px solid #ffffff; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 21%;
+}
+
+/* Username */
+.fixed-username {
+    font-size: 1.5em; 
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 1rem; 
+    text-align: center;
+}
+
+/* Password Input */
+.login-container input[type="password"] {
+    width: 80%;
+    padding: 1.9% 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-family: inherit; 
+    line-height: 0;
+    background-color: #f9f9f9;
+    margin: 0.5rem auto 2rem auto; 
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-container input[type="password"]:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Submit Button */
+.login-container button[type="submit"] {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem; 
+    border: none;
+    border-radius: 8px; 
+    font-size: 1.2em; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-container button[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Back Link */
+.back-link-2 {
+    position: fixed; 
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #111;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.back-link-2:hover {
+    color: #555;
+}
+
+/* Flash Message (Wrong Password) */
+.flash.error {
+    width: 90%;                      
+    max-width: 400px;                
+    margin: 0.5rem auto 2rem auto;      
+    padding: 1.9% 1.5rem;                 
+    background-color: #ff0000;       
+    color: #ffffff;                  
+    border-radius: 8px;             
+    box-shadow: 0 8px 30px rgba(179, 0, 0, 0.2);
+    font-weight: bold;
+    text-align: center;
+    animation: fadeInDown 0.5s ease-out;
+    box-sizing: border-box;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
