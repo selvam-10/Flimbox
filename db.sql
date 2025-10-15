@@ -94,4 +94,8 @@ VALUES("Fight Club", 1999, "David Fincher", "Drama | Thriller", "02:19", 8.8),
       ("Citizen Kane", 1941, "Orson Welles", "Drama | Psychological Drama", "01:59", 8.3),
       ("Fallen Angels", 1995, "Wong Kar-wai", "Crime | Drama | Romance | Neo-Noir", "01:39", 8.6),
       ('The Lost Bus', 2025, 'Paul Greengrass', 'Survival Drama | Thriller | History', '02:09', 7.0),
-      ('War 2', 2025, 'Ayan Mukerji', 'Action | Thriller', '02:53', 5.1);
+      ('War 2', 2025, 'Ayan Mukerji', 'Action | Thriller', '02:53', 5.1),
+      ('Children of Men', 2006, 'Alfonso Cuarón', 'Sci-Fi | Thriller | Drama', '01:49', 7.9),
+      ('American Beauty', 1999, 'Sam Mendes', 'Drama', '02:02', 8.3),
+      ('Saving Private Ryan', 1998, 'Steven Spielberg', 'War | Drama', '02:49', 8.6),
+      ('Chungking Express', 1994, 'Wong Kar-wai', 'Romance | Comedy | Drama', '01:42', 8.1);
