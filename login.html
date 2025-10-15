@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🎬 Login - FilmBox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body class="login-page">
+    <a href="{{ url_for('home') }}" class="back-link-2">← Back to FilmBox</a>
+    
+    <div class="login-container">
+        
+        <!-- Profile Image -->
+        <div class="profile-avatar">
+            <img src="{{ url_for('static', filename='images/Admin logo/Bruce wayne.jpeg') }}" alt="Admin Avatar">
+        </div>
+
+        <!-- Username Display -->
+        <div class="fixed-username">Administrator</div>
+
+        <!-- Flash Message for Wrong Password -->
+        {% if get_flashed_messages(category_filter=["error"]) %}
+          <div class="flash error">
+            You entered wrong password.
+          </div>
+        {% endif %}
+
+        <!-- Login Form -->
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="hidden" name="username" value="admin">
+            <input type="password" id="password" name="password" placeholder="Enter password" required autofocus>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+</body>
+</html>
