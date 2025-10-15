@@ -1,9 +1,10 @@
-from flask import Flask, render_template, abort, request, redirect, url_for
+from flask import Flask, render_template, abort, request, redirect, url_for, session, flash
 import mysql.connector
 
 app = Flask(__name__)
+app.secret_key = 'Say Hello To My Little Friend!'  # Needed for sessions
 
-# Database connection
+# ---------------------- DATABASE CONNECTION ----------------------
 def get_db_connection():
     conn = mysql.connector.connect(
         host='localhost',
@@ -13,38 +14,48 @@ def get_db_connection():
     )
     return conn
 
+
+# ---------------------- HOME PAGE ----------------------
 @app.route('/')
 def home():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    # Ensure Id is selected for linking
     cursor.execute("SELECT Id, Title, Release_Year, Director, Genre, Duration, Rating, Images FROM Movies")
     movies = cursor.fetchall()
     cursor.close()
     conn.close()
-    return render_template('index.html', movies=movies)
 
-# Route 1: Movie Detail Page (Defines endpoint: 'movie_detail')
+    # Determine if admin is logged in
+    is_admin = session.get('is_admin', False)
+
+    return render_template('index.html', movies=movies, is_admin=is_admin)
+
+
+# ---------------------- MOVIE DETAIL PAGE ----------------------
 @app.route('/movie/<int:movie_id>')
 def movie_detail(movie_id):
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
-    
-    # Fetch all details needed for the detail page
     cursor.execute("SELECT * FROM Movies WHERE Id = %s", (movie_id,))
     movie = cursor.fetchone()
-    
     cursor.close()
     conn.close()
-    
+
     if movie is None:
         abort(404)
-        
-    return render_template('movie_detail.html', movie=movie)
 
-# Route 2: Admin/Editor Page (Defines endpoint: 'add_movie_details')
+    # Pass admin status to template
+    is_admin = session.get('is_admin', False)
+    return render_template('movie_detail.html', movie=movie, is_admin=is_admin)
+
+
+# ---------------------- ADD OR EDIT MOVIE DETAILS (ADMIN ONLY) ----------------------
 @app.route('/movie/add-details/<int:movie_id>', methods=['GET', 'POST'])
 def add_movie_details(movie_id):
+    # Only admin can access
+    if not session.get('is_admin'):
+        flash("You don't have permission to access this page.", "warning")
+        return redirect(url_for('movie_detail', movie_id=movie_id))
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT Id, Title, Plot, Cast FROM Movies WHERE Id = %s", (movie_id,))
@@ -53,9 +64,8 @@ def add_movie_details(movie_id):
     if movie is None:
         cursor.close()
         conn.close()
-        abort(404)  # movie_detail_url won't be needed here
+        abort(404)
 
-    # movie exists, safe to create the URL
     movie_detail_url = url_for('movie_detail', movie_id=movie_id)
 
     if request.method == 'POST':
@@ -70,16 +80,46 @@ def add_movie_details(movie_id):
         try:
             cursor.execute(update_query, (plot, cast, movie_id))
             conn.commit()
-            cursor.close()
-            conn.close()
+            flash("Movie details updated successfully!", "success")
             return redirect(url_for('movie_detail', movie_id=movie_id))
         except Exception as e:
             conn.rollback()
-            print(f"Database error: {e}")
+            flash(f"Database error: {e}", "danger")
+        finally:
+            cursor.close()
+            conn.close()
 
     cursor.close()
     conn.close()
     return render_template('movie.html', movie=movie, movie_detail_url=movie_detail_url)
 
+
+# ---------------------- LOGIN ----------------------
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username'].strip()
+        password = request.form['password'].strip()
+
+        # Only admin can log in
+        if username == 'admin' and password == 'CR7Reunited':
+            session['logged_in'] = True
+            session['is_admin'] = True
+            return redirect(url_for('home'))
+        else:
+            flash("You entered wrong password.", "error")
+            return redirect(url_for('login'))
+
+    return render_template('login.html')
+
+# ---------------------- LOGOUT ----------------------
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("You have been logged out.", "info")
+    return redirect(url_for('home'))
+
+
+# ---------------------- MAIN ----------------------
 if __name__ == '__main__':
     app.run(debug=True)
