@@ -1,28 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ movie.Title }} Details - FilmBox</title>
+    <title>🎬 {{ movie.Title }} - FilmBox</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='movie_detail.css') }}">
+    <link rel="icon" href="data:,">
 </head>
 <body>
-
+    
+    <!-- Back Link -->
     <a href="{{ url_for('home') }}" class="back-link">← Back to FilmBox</a>
 
+    <!-- Main Movie Container -->
     <div class="detail-container">
+
+        <!-- Admin Edit Button -->
+        {% if session.get('is_admin') %}
         <div class="admin-link">
             <a href="{{ url_for('add_movie_details', movie_id=movie.Id) }}" class="edit-btn">
                 ✏️ Edit Details (Admin)
             </a>
         </div>
-        
+        {% endif %}
+
+        <!-- Poster & Movie Info -->
         <div class="main-info">
             {% if movie.Images %}
             <img src="{{ url_for('static', filename=movie.Images) }}" 
-                 alt="{{ movie.Title }} poster" class="detail-poster">
+                 alt="{{ movie.Title }} poster" class="detail-poster" id="detailPoster">
             {% endif %}
-            
+
             <div class="detail-info">
                 <h1>{{ movie.Title }} ({{ movie.Release_Year }})</h1>
                 <p><strong>Director:</strong> {{ movie.Director }}</p>
@@ -32,16 +40,28 @@
             </div>
         </div>
 
+        <!-- Plot Section -->
         <div class="plot-section">
             <h2>Plot Summary</h2>
             <p>{{ movie.Plot or 'Plot summary not yet available.' }}</p>
         </div>
-        
+
+        <!-- Cast Section -->
         <div class="cast-section">
             <h2>Cast</h2>
             <p>{{ movie.Cast or 'Cast details not yet added.' }}</p>
         </div>
+
+        <!-- Poster Modal (Optional for full view) -->
+        <div id="posterModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; 
+             background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
+            <span id="closeModal" style="position:absolute; top:20px; right:30px; font-size:30px; color:white; cursor:pointer;">&times;</span>
+            <img id="fullPoster" src="{{ url_for('static', filename=movie.Images) }}" alt="Full Poster" 
+                 style="max-width:90vw; max-height:90vh; border-radius:0px; box-shadow: 0 0.25rem 1.25rem rgba(0,0,0,0.3);">
+        </div>
+
     </div>
 
+    <script src="{{ url_for('static', filename='js/movie_detail.js') }}"></script>
 </body>
 </html>
