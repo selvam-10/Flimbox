@@ -13,7 +13,8 @@ A simple web application built using Flask and MySQL to display a movie listing,
 
 This project follows a standard Flask application structure:
 
-<img width="754" height="389" alt="image" src="https://github.com/user-attachments/assets/b8520f63-1942-4a65-8951-ab6538243c19" />
+<img width="584" height="494" alt="image" src="https://github.com/user-attachments/assets/98b24d4c-c283-472c-aa83-97fe5866278f" />
+
 
 ## 👤 Developed By
 Selvam
